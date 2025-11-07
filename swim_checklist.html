@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>花蓮縣縣運游泳賽檢查表</title>
+<style>
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: #f9fafb;
+    color: #111827;
+    margin: 0;
+    padding: 1.5rem;
+    line-height: 1.8;
+  }
+  h1, h2 {
+    text-align: center;
+    color: #2563eb;
+  }
+  section {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.4rem 0;
+  }
+  input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .info {
+    font-size: 0.95rem;
+    text-align: center;
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+</style>
+</head>
+<body>
+<h1>🏊‍♂️ 花蓮縣縣運游泳賽 檢查表</h1>
+<div class="info">
+  📅 114/11/8（六）～11/9（日）<br />
+  📍 太昌游泳池｜微亭宿旅<br />
+  🚆 集合：08:10 花蓮火車站（搭 08:42 自強號）
+</div>
+
+<section>
+  <h2>🎒 大包</h2>
+  <label><input type="checkbox" /> 換洗衣服一套</label>
+  <label><input type="checkbox" /> 牙刷、牙膏、毛巾</label>
+  <label><input type="checkbox" /> 保暖外套</label>
+  <label><input type="checkbox" /> 拖鞋</label>
+  <label><input type="checkbox" /> 雨傘</label>
+</section>
+
+<section>
+  <h2>🩱 小包</h2>
+  <label><input type="checkbox" /> 泳衣／泳褲</label>
+  <label><input type="checkbox" /> 泳帽／水鏡</label>
+  <label><input type="checkbox" /> 浴巾 ×2</label>
+  <label><input type="checkbox" /> 防水袋／塑膠袋</label>
+</section>
+
+<section>
+  <h2>📱 隨身物品</h2>
+  <label><input type="checkbox" /> ✅ 健保卡（最重要）</label>
+  <label><input type="checkbox" /> 手機</label>
+  <label><input type="checkbox" /> 充電線</label>
+  <label><input type="checkbox" /> 行動電源</label>
+  <label><input type="checkbox" /> 個人藥品</label>
+</section>
+
+<script>
+// ✅ 自動記錄勾選狀態
+const boxes = document.querySelectorAll('input[type="checkbox"]');
+boxes.forEach((box, index) => {
+  const key = 'check_' + index;
+  box.checked = localStorage.getItem(key) === 'true';
+  box.addEventListener('change', () => {
+    localStorage.setItem(key, box.checked);
+  });
+});
+</script>
+</body>
+</html>
